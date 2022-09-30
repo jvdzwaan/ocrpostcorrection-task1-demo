@@ -1,0 +1,4 @@
+datasets
+git+https://github.com/jvdzwaan/ocrpostcorrection.git#egg=ocrpostcorrection
+pandas
+transformers
