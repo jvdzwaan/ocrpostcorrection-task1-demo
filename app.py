@@ -8,9 +8,10 @@ from ocrpostcorrection.icdar_data import generate_sentences, process_input_ocr
 from ocrpostcorrection.token_classification import tokenize_and_align_labels
 from ocrpostcorrection.utils import predictions_to_labels, predictions2entity_output
 
-model_name = 'bert-base-multilingual-cased'
+tokenizer_name = 'bert-base-multilingual-cased'
+model_name = 'jvdzwaan/ocrpostcorrection-task-1'
 
-tokenizer = AutoTokenizer.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
 model = BertForTokenClassification.from_pretrained(model_name)
 
 
