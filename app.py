@@ -8,6 +8,11 @@ from ocrpostcorrection.icdar_data import generate_sentences, process_input_ocr
 from ocrpostcorrection.token_classification import tokenize_and_align_labels
 from ocrpostcorrection.utils import predictions_to_labels, predictions2entity_output
 
+description = """
+Token classifier that predicts whether a token is an OCR mistake or not. More
+information can be found [here](https://jvdzwaan.github.io/ocrpostcorrection/).
+"""
+
 tokenizer_name = 'bert-base-multilingual-cased'
 model_name = 'jvdzwaan/ocrpostcorrection-task-1'
 
@@ -45,8 +50,10 @@ def tag(text):
 examples = ['This is a cxample...']
 
 demo = gr.Interface(tag,
-             gr.Textbox(placeholder="Enter sentence here..."),
+             gr.Textbox(placeholder="Enter sentence here...", lines=7),
              gr.HighlightedText(),
+             title='Find OCR mistakes in text',
+             description=description,
              examples=examples,
              allow_flagging='never')
 
